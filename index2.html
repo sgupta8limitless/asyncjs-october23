@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script>
+
+        function getUsersFromFacebook(successcb,failcb)
+        {
+            //call api
+            //prepare data
+
+            let users = [{name:"Saurabh"},{name:"Utpal"}]
+
+            if(users>0)
+            {
+                successcb(users)
+            }
+            else 
+            {
+                failcb("some problem")
+            }
+
+        }
+
+        function getPostFromUser(user,sb,fb)
+        {
+            //call api
+            //get data
+            let posts =[];
+
+            if(posts>0)
+            {
+                sb(posts);
+            }
+            else 
+            {
+                fb("some problem");
+            }
+
+        }
+
+        setTimeout(function(){
+
+            getUsersFromFacebook(function(users){
+
+                setTimeout(function(){
+
+                    getPostFromUser(users[0],function(posts){
+                        
+                    },function(err){
+
+                    })
+
+                },0)
+
+            },function(err){
+
+            })
+
+        },0)
+
+    </script>
+
+</body>
+</html>
